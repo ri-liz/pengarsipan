@@ -8,10 +8,16 @@ use App\Models\User\Document\DocumentModel;
 
 class SyDocumentController extends Controller
 {
-    function detail(Request $request)
+    public function document(Request $request)
     {
         $id=$request->data;
-        return response()->json(id);
-        // $dataDetail=DocumentModel::where("tahun",$th)->where("")
+        $dataDetail["data"]=DocumentModel::where("tahun",$id)->get();
+        return response()->json($dataDetail);
+    }
+    public function detail(Request $request)
+    {
+        $id=$request->data;
+        $dataDetail=DocumentModel::where("id_berkas",$id)->get();
+        return response()->json($dataDetail);
     }
 }
