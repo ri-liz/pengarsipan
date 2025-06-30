@@ -12,4 +12,5 @@ Route::post('/LoginSy',[SyLoginController::class,"loginSy"])->name("page.login.s
 //dashboard
 Route::get('/User/Dashboard',[DashboardUser::class,"index"])->name("user.page.dashboard");
 
-Route::get('/User/Document',[DocumentController::class,"index"])->name("user.page.document");
+Route::get('/User/Document/{parameter}',[DocumentController::class,"index"])->name("user.page.document");
+Route::post('/User/Document/DetailDocument',[SyDocumentController::class,"detail"])->name("user.page.document.detail");

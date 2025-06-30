@@ -7,71 +7,27 @@
 @endsection
 
 @section('content')
+    
     <div class="pb-3 flex flex-row items-center">
         <label for="">Search : </label>
         <input type="text" class="w-26 rounded-lg h-10 border-2 ml-2 p-3">
     </div>
+    
     <div class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3">
-        <a href="" class="rounded-lg">
-            <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
-                <div class="flex flex-column items-center">
-                    <i class="fa fa-book fa-2x text-[white]"></i>
-                    <b class="text-white font-bold">2019</b>
+        @for ($i = 0; $i < count($dataBerkas); $i++)
+            <a href="{{url('/User/Document/'.$dataBerkas[$i]["tahun"])}}" class="rounded-lg">
+                <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
+                    <div class="flex flex-column items-center">
+                        <i class="fa fa-book fa-2x text-[white]"></i>
+                        <b class="text-white font-bold">{{$dataBerkas[$i]["tahun"]}}</b>
+                    </div>
                 </div>
-            </div>
-        </a>
-        <a href="" class="rounded-lg">
-            <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
-                <div class="flex flex-column items-center">
-                    <i class="fa fa-book fa-2x text-[white]"></i>
-                    <b class="text-white font-bold">2020</b>
-                </div>
-            </div>
-        </a>
-        <a href="" class="rounded-lg">
-            <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
-                <div class="flex flex-column items-center">
-                    <i class="fa fa-book fa-2x text-[white]"></i>
-                    <b class="text-white font-bold">2021</b>
-                </div>
-            </div>
-        </a>
-        <a href="" class="rounded-lg">
-            <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
-                <div class="flex flex-column items-center">
-                    <i class="fa fa-book fa-2x text-[white]"></i>
-                    <b class="text-white font-bold">2022</b>
-                </div>
-            </div>
-        </a>
-        <a href="" class="rounded-lg">
-            <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
-                <div class="flex flex-column items-center">
-                    <i class="fa fa-book fa-2x text-[white]"></i>
-                    <b class="text-white font-bold">2023</b>
-                </div>
-            </div>
-        </a>
-        <a href="" class="rounded-lg">
-            <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
-                <div class="flex flex-column items-center">
-                    <i class="fa fa-book fa-2x text-[white]"></i>
-                    <b class="text-white font-bold">2024</b>
-                </div>
-            </div>
-        </a>
-        <a href="" class="rounded-lg">
-            <div class="bg-[#0012cf] rounded-lg p-4 hover:bg-blue-500">
-                <div class="flex flex-column items-center">
-                    <i class="fa fa-book fa-2x text-[white]"></i>
-                    <b class="text-white font-bold">2025</b>
-                </div>
-            </div>
-        </a>
+            </a>    
+        @endfor
     </div>
+    
 @endsection
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $('input[type="text"]').on("keyup", function () {

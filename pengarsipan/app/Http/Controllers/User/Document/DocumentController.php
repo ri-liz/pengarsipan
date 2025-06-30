@@ -4,18 +4,14 @@ namespace App\Http\Controllers\User\Document;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User\Document\DocumentModel;
 
 class DocumentController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        echo "ssss";
-        // return view("user/document/index");
+        $dataBerkas['berkas']=DocumentModel::where("tahun",$id)->get()->toArray();
+        $dataBerkas["th"]=$id;
+        return view("user/document/index",compact("dataBerkas"));
     }   
-
-
-    private function getDataDocument()
-    {
-        
-    }
 }

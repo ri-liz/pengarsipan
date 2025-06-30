@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet"/>
+    @stack('link')
     <style>
         body {font-family: 'Inter', sans-serif;}
     </style>
@@ -44,13 +45,17 @@
         </div>
     </header>
 
-    <main class="mx-4">
-        <div class="mb-20">
-            <div class="text-sm text-gray-600">
+    <main>
+        <div class="mb-10 bg-[blue]">
+            <div class="text-sm text-gray-600 py-4 pl-4 !text-white">
                 @yield('breadcurb')
             </div>
         </div>
-        @yield('content')
+        <div class="px-3">
+            @yield('content')
+        </div>
     </main>
+    
+    @stack('script')
 </body>
 </html>
