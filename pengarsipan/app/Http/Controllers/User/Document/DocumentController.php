@@ -8,10 +8,17 @@ use App\Models\User\Document\DocumentModel;
 
 class DocumentController extends Controller
 {
-    public function index($id)
+    public function dataDocument($id)
     {
-        $dataBerkas['berkas']=DocumentModel::where("tahun",$id)->get()->toArray();
-        $dataBerkas["th"]=$id;
-        return view("user/document/index",compact("dataBerkas"));
+        $dataDocument['berkas']=DocumentModel::where("tahun",$id)->get()->toArray();
+        $dataDocument["th"]=$id;
+        return view("user/document/dataDocument",compact("dataDocument"));
+    }
+    public function index()
+    {
+        $dataDocument=DocumentModel::select("tahun")
+        ->distinct()
+        ->get()->toArray();
+        return view("user/document/index", compact("dataDocument"));
     }   
 }
